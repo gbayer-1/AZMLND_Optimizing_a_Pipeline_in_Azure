@@ -15,7 +15,7 @@ The best performing model was a VotingEnsemble found by the AutoML run with an a
 
 ## Scikit-learn Pipeline
 
-The training data is read in, preprocessed and split into training and test data in the train.py script.
+The training data is read, preprocessed and split into training and test data in the train.py script.
 The preprocessing step includes:
  - dropping NaN values, 
  - using binary encoding on the columns "marital" (distinction between "married" =1 and combining "divorced", "single" and "unknown" = 0); "default", "housing", "loan" ("yes"=1 and "no"/"unknown"= 0) and "poutcome" ("succes"=1, "failure"/"nonexistent" = 0)
@@ -50,7 +50,7 @@ The Ensemble consists of multiple XGBoostClassifiers, LightGBM Models and Logist
 Both the Tuning of the Hyperparameters with Hyperdrive and the AutoML resulted in models with a similar accuracy with a difference of 0.00015. The VotingEnsemble had a slight advantage considering the accuracy, because it uses the predictions of multiple classifications models, including one LogisticRegression Model. 
 
 ## Future work
-The best performing models in the hyperdrive run were all with high numbers of maximum iterations. For furture experiments the search space for the best hyperparameters can be expanded allowing higher numbers for the maximum iterations.
+For future work the tuning of the LogisticRegression model can be improved. The best performing models in the hyperdrive run were all with high numbers of maximum iterations. For furture experiments the search space for the best hyperparameters can be expanded towards some higher numbers of iterations.
 
 
 
