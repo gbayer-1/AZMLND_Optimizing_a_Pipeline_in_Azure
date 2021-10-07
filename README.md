@@ -29,6 +29,7 @@ The experiment uses Hyperdrive to tune the Hyperparameters of the Model, where t
 The experiment is run on a standard_d2_v2 cluster with a maximum of 4 nodes. Differents sets of hyperparameters are chosen randomly from the sample space and for each set a LogisticRegression model is trained using the training data and evaluated in regard of the primary metric using the test data.
 
 The best model from the hyperdrive run is using the parameters 'Regularization Strength:': 0.8037679473920307, 'Max iterations:': 1000, and has an accuracy of 0.91782
+<img width="1532" alt="Screenshot 2021-10-07 162826" src="https://user-images.githubusercontent.com/92030321/136405310-4a110cb9-566b-4822-9637-5625ca7645f4.png">
 
 **What are the benefits of the parameter sampler you chose?**
 
@@ -50,5 +51,6 @@ Both the Tuning of the Hyperparameters with Hyperdrive and the AutoML resulted i
 
 ## Future work
 The best performing models in the hyperdrive run were all with high numbers of maximum iterations. For furture experiments the search space for the best hyperparameters can be expanded allowing higher numbers for the maximum iterations.
+
 
 
