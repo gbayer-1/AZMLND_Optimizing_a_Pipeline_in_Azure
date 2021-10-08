@@ -49,6 +49,7 @@ I configured the AutoML experiment for a classfication task, since this is the p
 
 The best model found by AutoML was a VotingEnsemble with an accuracy of 0.91797. 
 <img width="866" alt="metrics_voting_ensemble" src="https://user-images.githubusercontent.com/92030321/136401742-984b8e8e-d75e-40e5-b44c-6d3efc6e9239.png">
+
 The Ensemble consists of multiple XGBoostClassifiers, LightGBM Models and LogisticRegression with different weights.
 <img width="302" alt="Screenshot 2021-10-07 161407" src="https://user-images.githubusercontent.com/92030321/136402570-710cb854-40be-4e5d-b7cf-03e5cb76ad32.png">
 
@@ -57,8 +58,6 @@ The Ensemble consists of multiple XGBoostClassifiers, LightGBM Models and Logist
 Both the Tuning of the Hyperparameters with Hyperdrive and the AutoML resulted in models with a similar accuracy with a difference of 0.00015. The VotingEnsemble had a slight advantage considering the accuracy, because it uses the predictions of multiple classifications models, including one LogisticRegression Model. 
 
 ## Future work
-For future work the tuning of the LogisticRegression model can be improved. The best performing models in the hyperdrive run were all with high numbers of maximum iterations.
-While training a LogisticRegression Model locally on this data I got a ConvergenceWarning for the model, if the number of maximum iterations was too low (100 iterations). This means, that the algorithm not necessarily got the best solution but only a local optimum. For future experiments the search space for the best hyperparameters can be expanded towards some higher numbers of iterations, to try to achieve convergence (although it is not guaranteed). Alternatively one can try to improve the LogisticRegression Model by trying different solvers.
-
-
+For future work the tuning of the LogisticRegression model can be improved to eventually result in a better accuracy of the model. 
+The best performing models in the hyperdrive run were all with high numbers of maximum iterations. While training a LogisticRegression Model locally on this data I got a ConvergenceWarning for the model, if the number of maximum iterations was too low (100 iterations). This means, that the algorithm not necessarily got the best solution but only a local optimum. For future experiments the search space for the best hyperparameters can be expanded towards some higher numbers of iterations, to try to achieve convergence (although it is not guaranteed). Additionally one can try to improve the LogisticRegression Model by including the solver parameter in Hyperdrive and try out different solvers ("lbfgs", "newton-cg", "liblinear") for this problem. 
 
