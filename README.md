@@ -42,6 +42,11 @@ I chose the RandomParameterSampler because it generates a given number of random
 I chose a BanditPolicy for early stopping with a slack factor of 0.1. This means that any model, that is more than 10% worse in regard to the primary metric than the current best model in the run, is terminated. That saves computation time, since any bad performing model is dropped freeing ressources for better models.
 
 ## AutoML
+<img width="625" alt="Screenshot 2021-10-08 081201" src="https://user-images.githubusercontent.com/92030321/136507110-4e33d2fd-892f-408c-865c-d1deb3e935b0.png">
+The AutoMl experiment was configured so the whole experiment times out after 30 minutes runtime.
+I configured the AutoML experiment for a classfication task, since this is the problem I am dealing with here. The primary metric is again "Accuracy", the same as in the Hyperdrive run. Instead of splitting the dataset into training and test data I provided the complete cleaned dataset ("data") as training data for the AutoML experiment and configured to run a 5-fold crossvalidation. The column name of the value the AutoML model should predict is "y" and is specified with the parameter "label_column_name".
+
+
 The best model found by AutoML was a VotingEnsemble with an accuracy of 0.91797. 
 <img width="866" alt="metrics_voting_ensemble" src="https://user-images.githubusercontent.com/92030321/136401742-984b8e8e-d75e-40e5-b44c-6d3efc6e9239.png">
 The Ensemble consists of multiple XGBoostClassifiers, LightGBM Models and LogisticRegression with different weights.
@@ -53,6 +58,7 @@ Both the Tuning of the Hyperparameters with Hyperdrive and the AutoML resulted i
 
 ## Future work
 For future work the tuning of the LogisticRegression model can be improved. The best performing models in the hyperdrive run were all with high numbers of maximum iterations. For furture experiments the search space for the best hyperparameters can be expanded towards some higher numbers of iterations.
+
 
 
 
