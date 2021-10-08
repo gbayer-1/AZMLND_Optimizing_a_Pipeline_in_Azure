@@ -57,8 +57,8 @@ The Ensemble consists of multiple XGBoostClassifiers, LightGBM Models and Logist
 Both the Tuning of the Hyperparameters with Hyperdrive and the AutoML resulted in models with a similar accuracy with a difference of 0.00015. The VotingEnsemble had a slight advantage considering the accuracy, because it uses the predictions of multiple classifications models, including one LogisticRegression Model. 
 
 ## Future work
-For future work the tuning of the LogisticRegression model can be improved. The best performing models in the hyperdrive run were all with high numbers of maximum iterations. For furture experiments the search space for the best hyperparameters can be expanded towards some higher numbers of iterations.
-
+For future work the tuning of the LogisticRegression model can be improved. The best performing models in the hyperdrive run were all with high numbers of maximum iterations.
+While training a LogisticRegression Model locally on this data I got a ConvergenceWarning for the model, if the number of maximum iterations was too low (100 iterations). This means, that the algorithm not necessarily got the best solution but only a local optimum. For future experiments the search space for the best hyperparameters can be expanded towards some higher numbers of iterations, to try to achieve convergence (although it is not guaranteed). Alternatively one can try to improve the LogisticRegression Model by trying different solvers.
 
 
 
